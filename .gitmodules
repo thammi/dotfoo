@@ -1,3 +1,6 @@
 [submodule "vim/colors/vilight"]
 	path = vim/colors/vilight
 	url = https://github.com/vim-scripts/vilight.vim.git
+[submodule "vim/syntax/brainfuck"]
+	path = vim/syntax/brainfuck
+	url = https://github.com/vim-scripts/brainfuck-syntax.git

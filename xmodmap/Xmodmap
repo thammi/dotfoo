@@ -1,0 +1,20 @@
+! menu key acts as super key (for awesome)
+keysym Menu = Super_R
+
+! right alt activates special characters
+keysym Alt_R = Mode_switch
+
+! get umlauts on the us layout
+keysym u = u U udiaeresis Udiaeresis
+keysym a = a A adiaeresis Adiaeresis
+keysym o = o O odiaeresis Odiaeresis
+
+! sz
+keysym s = s S ssharp
+
+! euro symbol
+keysym e = e E U20AC
+
+! you never know when you need a lambda
+keysym l = l L U03BB
+

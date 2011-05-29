@@ -15,6 +15,9 @@ colorscheme torte
 " reset some stuff
 set nocompatible
 
+" new leader
+let mapleader = ","
+
 " magic indent plugin for many languages
 filetype indent plugin on
 
@@ -87,7 +90,7 @@ set incsearch
 set scrolloff=2
 
 " Tag-List
-map \t :TlistToggle<CR><C-W>h
+map <leader>t :TlistToggle<CR><C-W>h
 
 " Doxygen
 map <C-D> :Dox<CR>

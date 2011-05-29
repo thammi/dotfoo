@@ -13,3 +13,6 @@
 [submodule "vim/plugin/taglist"]
 	path = vim/plugin/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
+[submodule "vim/plugin/doxygen_toolkit"]
+	path = vim/plugin/doxygen_toolkit
+	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git

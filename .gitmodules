@@ -16,3 +16,6 @@
 [submodule "vim/plugin/doxygen_toolkit"]
 	path = vim/plugin/doxygen_toolkit
 	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
+[submodule "vim/plugin/csapprox"]
+	path = vim/plugin/csapprox
+	url = https://github.com/godlygeek/csapprox.git

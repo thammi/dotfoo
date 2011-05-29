@@ -7,3 +7,6 @@
 [submodule "vim/plugin/minibufexpl"]
 	path = vim/plugin/minibufexpl
 	url = https://github.com/vim-scripts/minibufexpl.vim.git
+[submodule "vim/plugin/nerd_commenter"]
+	path = vim/plugin/nerd_commenter
+	url = https://github.com/vim-scripts/The-NERD-Commenter.git

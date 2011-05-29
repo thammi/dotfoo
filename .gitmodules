@@ -10,3 +10,6 @@
 [submodule "vim/plugin/nerd_commenter"]
 	path = vim/plugin/nerd_commenter
 	url = https://github.com/vim-scripts/The-NERD-Commenter.git
+[submodule "vim/plugin/taglist"]
+	path = vim/plugin/taglist
+	url = https://github.com/vim-scripts/taglist.vim.git

@@ -4,3 +4,6 @@
 [submodule "vim/syntax/brainfuck"]
 	path = vim/syntax/brainfuck
 	url = https://github.com/vim-scripts/brainfuck-syntax.git
+[submodule "vim/plugin/minibufexpl"]
+	path = vim/plugin/minibufexpl
+	url = https://github.com/vim-scripts/minibufexpl.vim.git

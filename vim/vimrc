@@ -96,12 +96,6 @@ map <leader>t :TlistToggle<CR><C-W>h
 map <C-D> :Dox<CR>
 imap <C-D> <ESC>:Dox<CR>
 
-" Java stuff
-autocmd FileType java let b:jcommenter_class_author='Stephan Thamm (thammi@chaossource.net)'
-autocmd FileType java let b:jcommenter_file_author='Stephan Thamm (thammi@chaossource.net)'
-autocmd FileType java source ~/.vim/macros/jcommenter.vim
-autocmd FileType java map <M-c> :call JCommentWriter()<CR>
-
 " MiniBufExplorer
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1

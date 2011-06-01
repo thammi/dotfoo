@@ -5,8 +5,8 @@ endif
 
 " helper for the color script
 if &term == 'xterm' || &term =~? '^screen'
-  set t_Co=256                               
-  let g:CSApprox_konsole = 1                 
+  set t_Co=256
+  let g:CSApprox_konsole = 1
 endif
 
 " nice colorscheme
@@ -104,4 +104,8 @@ let g:miniBufExplModSelTarget = 1
 
 " don't close hidden buffers
 set hidden
+
+" find trailing whitespaces
+set listchars=tab:>-,trail:·,eol:$
+nmap <silent> <leader>s :set nolist!<CR>
 

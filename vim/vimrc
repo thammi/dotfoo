@@ -24,6 +24,9 @@ filetype indent plugin on
 " syntax highlighting
 syntax on
 
+" initialize pathogen
+call pathogen#infect()
+
 " toggle wrapping with F10
 " TODO: find out how ugly this really is
 function! WrapToggle()

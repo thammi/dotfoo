@@ -1,1 +1,0 @@
-vilight/colors/vilight.vim

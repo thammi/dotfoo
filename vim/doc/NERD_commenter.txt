@@ -1,1 +1,0 @@
-../plugin/nerd_commenter/doc/NERD_commenter.txt

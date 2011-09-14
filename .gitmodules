@@ -1,23 +1,23 @@
 [submodule "vim/colors/vilight"]
-	path = vim/colors/vilight
+	path = vim/bundle/vilight
 	url = https://github.com/vim-scripts/vilight.vim.git
 [submodule "vim/syntax/brainfuck"]
-	path = vim/syntax/brainfuck
+	path = vim/bundle/brainfuck
 	url = https://github.com/vim-scripts/brainfuck-syntax.git
 [submodule "vim/plugin/minibufexpl"]
-	path = vim/plugin/minibufexpl
+	path = vim/bundle/minibufexpl
 	url = https://github.com/vim-scripts/minibufexpl.vim.git
 [submodule "vim/plugin/nerd_commenter"]
-	path = vim/plugin/nerd_commenter
+	path = vim/bundle/nerd_commenter
 	url = https://github.com/vim-scripts/The-NERD-Commenter.git
 [submodule "vim/plugin/taglist"]
-	path = vim/plugin/taglist
+	path = vim/bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim.git
 [submodule "vim/plugin/doxygen_toolkit"]
-	path = vim/plugin/doxygen_toolkit
+	path = vim/bundle/doxygen_toolkit
 	url = https://github.com/vim-scripts/DoxygenToolkit.vim.git
 [submodule "vim/plugin/csapprox"]
-	path = vim/plugin/csapprox
+	path = vim/bundle/csapprox
 	url = https://github.com/godlygeek/csapprox.git
 [submodule "vim/autoload/pathogen"]
 	path = vim/autoload/pathogen

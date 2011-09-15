@@ -62,6 +62,9 @@ au BufRead,BufNewFile .vimrc,vimrc set shiftwidth=2 tabstop=2 smarttab expandtab
 " js the way i want it
 au BufRead,BufNewFile *.js set shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4
 
+" coffee script
+au BufRead,BufNewFile *.coffee set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
+
 " brainfuck
 au BufRead,BufNewFile *.bf setfiletype brainfuck
 

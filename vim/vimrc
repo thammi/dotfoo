@@ -65,6 +65,9 @@ au BufRead,BufNewFile *.js set shiftwidth=4 tabstop=4 smarttab expandtab softtab
 " brainfuck
 au BufRead,BufNewFile *.bf setfiletype brainfuck
 
+" json
+au BufRead,BufNewFile *.json setfiletype json
+
 " qt style sheets (looks like css ;) )
 au BufRead,BufNewFile *.qss setfiletype css
 

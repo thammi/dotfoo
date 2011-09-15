@@ -28,3 +28,6 @@
 [submodule "vim/bundle/json"]
 	path = vim/bundle/json
 	url = https://github.com/vim-scripts/JSON.vim.git
+[submodule "vim/bundle/jade"]
+	path = vim/bundle/jade
+	url = https://github.com/vim-scripts/jade.vim.git

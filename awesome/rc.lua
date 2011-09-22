@@ -22,6 +22,9 @@ end
 -- Themes define colours, icons, and wallpapers
 beautiful.init("/usr/share/awesome/themes/default/theme.lua")
 
+hostname = io.open("/proc/sys/kernel/hostname"):read("*line")
+config_dir = awful.util.getdir("config") .. "/" .. hostname
+
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
 lock = "i3lock -c 000022"
@@ -367,7 +370,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 -- {{{ Autostart
 local once = require("once")
 
-local auto_file, err = io.open(awful.util.getdir("config") .. "/autostart")
+local auto_file, err = io.open(config_dir .. "/autostart")
 
 if auto_file then
 	raw_start = auto_file:read("*all")

@@ -12,7 +12,14 @@ files.
 	cd $HOME/.config
 	ln -s $DOTAWESOME awesome
 
-## Autostart
+## Configuration
+
+### Concept
+
+The host specific configuration is saved in a directory with the name of the
+hostname of the system it applies to.
+
+### Autostart
 
 You can specify some autostart commands in the `autostart` file. Each line in it
 represents a command which should be executed at startup. The commands are only

@@ -1,0 +1,21 @@
+#!/bin/sh
+###############################################################################
+##
+##  Deactivate Touchpad and configure TrackPoint
+##
+###############################################################################
+
+track_config() {
+	xinput set-int-prop $1 "Evdev Wheel Emulation" 8 1
+	xinput set-int-prop $1 "Evdev Wheel Emulation Button" 8 2
+	xinput set-int-prop $1 "Evdev Wheel Emulation Timeout" 8 200
+	xinput set-int-prop $1 "Evdev Wheel Emulation Axes" 8 6 7 4 5
+}
+
+for trackpoint in `xinput list | grep TrackPoint | sed -n "s/.*id=\([0-9]\+\).*/\1/p"`
+do
+	track_config $trackpoint
+done
+
+synclient TouchpadOff=1
+

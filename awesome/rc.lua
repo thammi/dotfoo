@@ -8,6 +8,8 @@ require("awful.rules")
 require("beautiful")
 -- Notification library
 require("naughty")
+-- JSON parsing and encoding
+require("json")
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -369,6 +371,51 @@ end)
 
 client.add_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.add_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
+-- }}}
+
+
+-- {{{ Config Helper
+function get_tag(id)
+	local screen, tag = id:match("(%d+)%.(%d+)")
+
+	-- an id can be ...
+	if screen == nil then
+		-- ... a single tag
+		return tags[1][tonumber(id)]
+	else
+		-- ... a $SCREEN.$TAG
+		return tags[tonumber(screen)][tonumber(tag)]
+	end
+end
+-- }}}
+
+-- {{{ Tag Configuration
+local tag_file, err = io.open(config_dir .. "/tags.json")
+
+if tag_file then
+	tag_config = json.decode(tag_file:read("*all"))
+	tag_file:close()
+
+	for tag_id, data in pairs(tag_config) do
+		local tag = get_tag(tag_id)
+
+		if data.layout then
+			local layout = awful.layout.suit[data.layout]
+
+			if layout then
+				awful.layout.set(layout, tag)
+			else
+				debug("Could not set layout '" .. data.layout .. "' on '" .. tag_id .. "'")
+			end
+		end
+
+		if data.hint then
+			awful.tag.setmwfact(tonumber(data.hint), tag)
+		end
+	end
+else
+	debug("Could not open tag file: '" .. err .. "'")
+end
 -- }}}
 
 -- {{{ Autostart

@@ -47,3 +47,10 @@ layout. Tiling layouts use it as the ratio between the main window and ther rest
 The `layout` property determines the layout which is used in this tag. The value
 should reference a valid layout from `awful.layout.suit`.
 
+### Rules
+
+The `rules.json` file enables you to expand the rules applied to new windows.
+The JSON files should contain rules with the structure which `awful.rules.rules`
+accepts. They are simply appended to these rules. Only the tag property is
+replaced by the actual tag represented by the given tag id (see above).
+

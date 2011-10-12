@@ -34,8 +34,11 @@ executed if the process is not running, yet.
 
 The file `tags.json` includes configuration concerninge single tags. Every tag
 is identified by the screen it is on and its number on this screen splitted by a
-dot. `1.5` targets the fifth tag on screen one. Each tag in this JSON file can
-have multiple propierties.
+dot. `1.5` targets the fifth tag on screen one. Single numbers are interpreted
+as tags on screen one.
+
+Each tag in this JSON file can have multiple propierties which are described
+below.
 
 #### Size Hint
 

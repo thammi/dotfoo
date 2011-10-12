@@ -1,0 +1,14 @@
+[
+	{
+		"rule": { "class": "Gajim" },
+		"properties": {
+			"tag": "9"
+		}
+	},
+	{
+		"rule": { "class": "Kmail" },
+		"properties": {
+			"tag": "8"
+		}
+	}
+]

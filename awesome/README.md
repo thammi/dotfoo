@@ -12,6 +12,20 @@ files.
 	cd $HOME/.config
 	ln -s $DOTAWESOME awesome
 
+## Dependencies
+
+Mandatory dependencies:
+
+* awesome (known to work with 3.4.10)
+* luajson
+
+Starting at rc.lua:30 there are some commands configured. You can change them if
+you want to use alternatives. The defaults are:
+
+* i3lock
+* x-terminal-emulator
+* editor
+
 ## Configuration
 
 ### Concept

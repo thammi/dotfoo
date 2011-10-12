@@ -435,3 +435,21 @@ else
 end
 -- }}}
 
+-- {{{ Extending the Rules 
+local rule_file, err = io.open(config_dir .. "/rules.json")
+
+if rule_file then
+	rule_config = json.decode(rule_file:read("*all"))
+	rule_file:close()
+
+	for _, rule in ipairs(rule_config) do
+		if rule.properties.tag then
+			rule.properties.tag = get_tag(rule.properties.tag)
+		end
+
+		table.insert(awful.rules.rules, rule)
+	end
+else
+	debug("Could not open rule file: '" .. err .. "'")
+end
+-- }}}

@@ -68,6 +68,14 @@ for s = 1, screen.count() do
 end
 -- }}}
 
+-- {{{ host specific lua code
+local ret, err = pcall(function() require(hostname .. "/local") end)
+if not ret then
+	debug("Could not load host specific 'local.lua'")
+	debug(err)
+end
+-- }}}
+
 -- {{{ Menu
 -- Create a laucher widget and a main menu
 myawesomemenu = {

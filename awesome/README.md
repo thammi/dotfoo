@@ -18,6 +18,11 @@ Mandatory dependencies:
 
 * awesome (known to work with 3.4.10)
 * luajson
+* luafilesystem
+
+On Debian simply run:
+
+	apt-get install awesome liblua5.1-filesystem0 liblua5.1-json
 
 Starting at rc.lua:30 there are some commands configured. You can change them if
 you want to use alternatives. The defaults are:

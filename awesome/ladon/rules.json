@@ -1,0 +1,20 @@
+[
+	{
+		"rule": { "class": "Gajim" },
+		"properties": {
+			"tag": "2.1"
+		}
+	},
+	{
+		"rule": { "class": "Kmail" },
+		"properties": {
+			"tag": "3.1"
+		}
+	},
+	{
+		"rule": { "class": "Akregator" },
+		"properties": {
+			"tag": "3.2"
+		}
+	}
+]

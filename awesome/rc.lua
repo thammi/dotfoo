@@ -386,7 +386,7 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 -- {{{ Config Helper
 function get_tag(screen, tag)
-	if #tags <= screen and #tags[screen] <= tag then
+	if screen <= #tags and tag <= #tags[screen] then
 		return tags[screen][tag]
 	else
 		return nil
@@ -402,7 +402,7 @@ function parse_tag(id)
 		return get_tag(1, tonumber(id))
 	else
 		-- ... a $SCREEN.$TAG
-		return get_tag(tonumber(screen), tonumber(id))
+		return get_tag(tonumber(screen), tonumber(tag))
 	end
 end
 
@@ -482,7 +482,8 @@ function load_config_dir(name)
 
 		for _, rule in ipairs(rule_config) do
 			if rule.properties.tag then
-				local tag = parse_tag(rule.properties.tag)
+				local tag_id = rule.properties.tag
+				local tag = parse_tag(tag_id)
 
 				if tag then
 					rule.properties.tag = tag

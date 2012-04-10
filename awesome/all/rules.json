@@ -1,0 +1,14 @@
+[
+	{
+		"rule": { "role": "gimp-toolbox" },
+		"properties": {
+			"ontop": true
+		}
+	},
+	{
+		"rule": { "role": "gimp-dock" },
+		"properties": {
+			"ontop": true
+		}
+	}
+]

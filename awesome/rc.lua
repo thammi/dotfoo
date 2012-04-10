@@ -10,6 +10,11 @@ require("beautiful")
 require("naughty")
 -- JSON parsing and encoding
 require("json")
+-- Autostart module
+once = require("once")
+-- Lua Filesystem
+require("lfs")
+
 
 -- Load Debian menu entries
 require("debian.menu")
@@ -22,14 +27,11 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, and wallpapers
-beautiful.init("/usr/share/awesome/themes/default/theme.lua")
-
-hostname = io.open("/proc/sys/kernel/hostname"):read("*line")
-config_dir = awful.util.getdir("config") .. "/" .. hostname
+beautiful.init(".config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
-lock = "i3lock -c 000022"
+lock = "i3lock -c 000022 -u -d"
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
 
@@ -214,8 +216,8 @@ globalkeys = awful.util.table.join(
     -- Layout manipulation
     awful.key({ modkey, "Shift"   }, "j", function () awful.client.swap.byidx(  1)    end),
     awful.key({ modkey, "Shift"   }, "k", function () awful.client.swap.byidx( -1)    end),
-    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative( 1) end),
-    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Control" }, "j", function () awful.screen.focus_relative(-1) end),
+    awful.key({ modkey, "Control" }, "k", function () awful.screen.focus_relative( 1) end),
     awful.key({ modkey,           }, "u", awful.client.urgent.jumpto),
     awful.key({ modkey,           }, "Tab",
         function ()
@@ -261,8 +263,8 @@ clientkeys = awful.util.table.join(
     awful.key({ modkey, "Shift"   }, "c",      function (c) c:kill()                         end),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ),
     awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end),
-    awful.key({ modkey,           }, "o",      awful.client.movetoscreen                        ),
-    awful.key({ modkey, "Shift"   }, "o",
+    awful.key({ modkey, "Shift"   }, "o",      awful.client.movetoscreen                        ),
+    awful.key({ modkey,           }, "o",
         function (c)
 	    awful.client.movetoscreen(c, c.screen-1)
         end),
@@ -383,81 +385,123 @@ client.add_signal("unfocus", function(c) c.border_color = beautiful.border_norma
 
 
 -- {{{ Config Helper
-function get_tag(id)
+function get_tag(screen, tag)
+	if screen <= #tags and tag <= #tags[screen] then
+		return tags[screen][tag]
+	else
+		return nil
+	end
+end
+
+function parse_tag(id)
 	local screen, tag = id:match("(%d+)%.(%d+)")
 
 	-- an id can be ...
 	if screen == nil then
 		-- ... a single tag
-		return tags[1][tonumber(id)]
+		return get_tag(1, tonumber(id))
 	else
 		-- ... a $SCREEN.$TAG
-		return tags[tonumber(screen)][tonumber(tag)]
+		return get_tag(tonumber(screen), tonumber(tag))
+	end
+end
+
+function is_dir(file)
+	local attr = lfs.attributes(file)
+
+	if attr then
+		return attr.mode == 'directory'
+	else
+		return false
 	end
 end
 -- }}}
 
--- {{{ Tag Configuration
-local tag_file, err = io.open(config_dir .. "/tags.json")
+function load_config_dir(name)
+	local config_dir = awful.util.getdir("config") .. "/" .. name
 
-if tag_file then
-	tag_config = json.decode(tag_file:read("*all"))
-	tag_file:close()
+	if not is_dir(config_dir) then
+		debug("Could not load '" .. name .. "' configuration dir")
+		return
+	end
 
-	for tag_id, data in pairs(tag_config) do
-		local tag = get_tag(tag_id)
+	-- {{{ Tag Configuration
+	local tag_file, err = io.open(config_dir .. "/tags.json")
 
-		if data.layout then
-			local layout = awful.layout.suit[data.layout]
+	if tag_file then
+		local tag_config = json.decode(tag_file:read("*all"))
+		tag_file:close()
 
-			if layout then
-				awful.layout.set(layout, tag)
+		for tag_id, data in pairs(tag_config) do
+			local tag = parse_tag(tag_id)
+
+			if tag then
+				if data.layout then
+					local layout = awful.layout.suit[data.layout]
+
+					if layout then
+						awful.layout.set(layout, tag)
+					else
+						debug("Could not set layout '" .. data.layout .. "' on '" .. tag_id .. "'")
+					end
+				end
+
+				if data.hint then
+					awful.tag.setmwfact(tonumber(data.hint), tag)
+				end
 			else
-				debug("Could not set layout '" .. data.layout .. "' on '" .. tag_id .. "'")
+				debug("Could not find tag '" .. tag_id .. "'")
 			end
 		end
+	else
+		debug("Could not open tag file: '" .. err .. "'")
+	end
+	-- }}}
 
-		if data.hint then
-			awful.tag.setmwfact(tonumber(data.hint), tag)
+	-- {{{ Autostart
+	local auto_file, err = io.open(config_dir .. "/autostart")
+
+	if auto_file then
+		local raw_start = auto_file:read("*all")
+		auto_file:close()
+
+		for command in raw_start:gmatch("[^\n]+") do
+			once.run_once(command)
 		end
+	else
+		debug("Could not open autostart file: '" .. err .. "'")
 	end
-else
-	debug("Could not open tag file: '" .. err .. "'")
-end
--- }}}
+	-- }}}
 
--- {{{ Autostart
-local once = require("once")
+	-- {{{ Extending the Rules
+	local rule_file, err = io.open(config_dir .. "/rules.json")
 
-local auto_file, err = io.open(config_dir .. "/autostart")
+	if rule_file then
+		local rule_config = json.decode(rule_file:read("*all"))
+		rule_file:close()
 
-if auto_file then
-	raw_start = auto_file:read("*all")
-	auto_file:close()
+		for _, rule in ipairs(rule_config) do
+			if rule.properties.tag then
+				local tag_id = rule.properties.tag
+				local tag = parse_tag(tag_id)
 
-	for command in raw_start:gmatch("[^\n]+") do
-		once.run_once(command)
-	end
-else
-	debug("Could not open autostart file: '" .. err .. "'")
-end
--- }}}
+				if tag then
+					rule.properties.tag = tag
+				else
+					debug("Could not find tag '" .. tag_id .. "'")
+				end
+			end
 
--- {{{ Extending the Rules 
-local rule_file, err = io.open(config_dir .. "/rules.json")
-
-if rule_file then
-	rule_config = json.decode(rule_file:read("*all"))
-	rule_file:close()
-
-	for _, rule in ipairs(rule_config) do
-		if rule.properties.tag then
-			rule.properties.tag = get_tag(rule.properties.tag)
+			table.insert(awful.rules.rules, rule)
 		end
-
-		table.insert(awful.rules.rules, rule)
+	else
+		debug("Could not open rule file: '" .. err .. "'")
 	end
-else
-	debug("Could not open rule file: '" .. err .. "'")
+	-- }}}
 end
--- }}}
+
+local hostname = io.open("/proc/sys/kernel/hostname"):read("*line")
+
+load_config_dir(hostname)
+load_config_dir('all')
+

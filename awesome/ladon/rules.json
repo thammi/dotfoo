@@ -16,5 +16,11 @@
 		"properties": {
 			"tag": "3.2"
 		}
+	},
+	{
+		"rule": { "class": "jd-Main" },
+		"properties": {
+			"tag": "2.7"
+		}
 	}
 ]

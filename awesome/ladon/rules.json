@@ -22,5 +22,11 @@
 		"properties": {
 			"tag": "2.7"
 		}
+	},
+	{
+		"rule": { "class": "tvbrowser-TVBrowser" },
+		"properties": {
+			"tag": "2.8"
+		}
 	}
 ]

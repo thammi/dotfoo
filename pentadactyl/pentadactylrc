@@ -1,0 +1,33 @@
+js <<EOF
+soup = function() {
+  var es=['body','frameset','head'];
+  var u=content.document.location.protocol+'//www.soup.io/';
+  var fn='soup_bookmarklet_'+(Math.floor(Math.random()*100000));
+
+  try
+  {
+    var s=content.document.createElement('script');
+    s.setAttribute('src',u+'bookmarklet/js/'+ fn +'/5');
+    for (var i=0;i<es.length;i++){
+      var e=content.document.getElementsByTagName(es[i])[0];
+      if(e){
+        e.appendChild(s);
+        break;
+      }
+    }
+  }
+  catch(e)
+  {
+    alert(e);
+    alert("This doesn't work here.");
+  }
+
+  void(0);
+
+  content.window.open(u+'bookmarklet-loading.html',fn,'toolbar=0,resizable=1,scrollbars=yes,status=1,width=450,height=400');
+}
+EOF
+
+command soup js soup()
+map S :soup<cr>
+

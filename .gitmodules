@@ -34,3 +34,6 @@
 [submodule "vim/bundle/camelcasemotion"]
 	path = vim/bundle/camelcasemotion
 	url = https://github.com/vim-scripts/camelcasemotion.git
+[submodule "vim/bundle/gundo"]
+	path = vim/bundle/gundo
+	url = http://github.com/sjl/gundo.vim.git

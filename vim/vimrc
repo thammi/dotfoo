@@ -108,6 +108,9 @@ map <leader>t :TlistToggle<CR><C-W>h
 map <C-D> :Dox<CR>
 imap <C-D> <ESC>:Dox<CR>
 
+" gundo
+nnoremap <F5> :GundoToggle<CR>
+
 " MiniBufExplorer
 let g:miniBufExplMapWindowNavVim = 1
 let g:miniBufExplMapWindowNavArrows = 1

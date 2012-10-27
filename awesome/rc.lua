@@ -447,7 +447,19 @@ function load_config_dir(name)
 
 			if tag then
 				if data.layout then
-					local layout = awful.layout.suit[data.layout]
+					local layout
+
+					if type(data.layout) == 'string' then
+						layout = awful.layout.suit[data.layout]
+					else
+						layout = awful.layout.suit
+
+						for _, name in ipairs(data.layout) do
+							if layout then
+								layout = layout[name]
+							end
+						end
+					end
 
 					if layout then
 						awful.layout.set(layout, tag)

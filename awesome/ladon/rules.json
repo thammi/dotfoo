@@ -8,13 +8,13 @@
 	{
 		"rule": { "class": "Kmail" },
 		"properties": {
-			"tag": "3.1"
+			"tag": "2.2"
 		}
 	},
 	{
 		"rule": { "class": "Akregator" },
 		"properties": {
-			"tag": "3.2"
+			"tag": "2.3"
 		}
 	},
 	{

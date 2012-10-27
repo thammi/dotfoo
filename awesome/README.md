@@ -28,6 +28,7 @@ Starting at rc.lua:30 there are some commands configured. You can change them if
 you want to use alternatives. The defaults are:
 
 * i3lock
+* xtrlock
 * x-terminal-emulator
 * editor
 

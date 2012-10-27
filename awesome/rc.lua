@@ -31,9 +31,14 @@ beautiful.init(".config/awesome/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "x-terminal-emulator"
-lock = "i3lock -c 000022 -u -d"
+
 editor = os.getenv("EDITOR") or "editor"
 editor_cmd = terminal .. " -e " .. editor
+
+lock = "i3lock -c 000022 -u -d"
+transp_lock = "xtrlock"
+
+media_play = "xmms2 toggle"
 
 -- Default modkey.
 -- Usually, Mod4 is the key with a logo between Control and Alt.
@@ -255,7 +260,8 @@ globalkeys = awful.util.table.join(
               end),
 
     -- Lock/Away
-    awful.key({ modkey, "Control" }, "a", function () awful.util.spawn(lock) end)
+    awful.key({ modkey, "Control" }, "a", function () awful.util.spawn(lock) end),
+    awful.key({ modkey, "Control", "Shift" }, "a", function () awful.util.spawn(transp_lock) end),
 )
 
 clientkeys = awful.util.table.join(

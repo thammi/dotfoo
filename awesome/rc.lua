@@ -262,6 +262,10 @@ globalkeys = awful.util.table.join(
     -- Lock/Away
     awful.key({ modkey, "Control" }, "a", function () awful.util.spawn(lock) end),
     awful.key({ modkey, "Control", "Shift" }, "a", function () awful.util.spawn(transp_lock) end),
+
+    -- multimedia
+    awful.key({                   }, "XF86AudioPlay", function () awful.util.spawn("xmms2 play") end),
+    awful.key({                   }, "XF86AudioPause", function () awful.util.spawn("xmms2 pause") end)
 )
 
 clientkeys = awful.util.table.join(

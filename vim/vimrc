@@ -59,6 +59,9 @@ au BufRead,BufNewFile *.py,*.pyw set shiftwidth=4 tabstop=4 smarttab expandtab s
 " vimrc (meta :D)
 au BufRead,BufNewFile .vimrc,vimrc set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
 
+" latex
+au BufRead,BufNewFile *.tex set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
+
 " js the way i want it
 au BufRead,BufNewFile *.js set shiftwidth=4 tabstop=4 smarttab expandtab softtabstop=4
 
@@ -104,6 +107,9 @@ map <leader>t :TlistToggle<CR><C-W>h
 " Doxygen
 map <C-D> :Dox<CR>
 imap <C-D> <ESC>:Dox<CR>
+
+" gundo
+nnoremap <F5> :GundoToggle<CR>
 
 " MiniBufExplorer
 let g:miniBufExplMapWindowNavVim = 1

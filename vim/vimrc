@@ -105,7 +105,7 @@ set incsearch
 set scrolloff=2
 
 " Tag-List
-"map <leader>t :TlistToggle<CR><C-W>h
+map <leader>T :TlistToggle<CR><C-W>h
 
 " Doxygen
 map <C-D> :Dox<CR>
@@ -128,5 +128,5 @@ set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
 
 " Commant-T
-set wildignore+=*.o,*.d,.git
+set wildignore+=build,test,out,*.o,*.d,.git
 

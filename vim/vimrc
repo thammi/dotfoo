@@ -24,6 +24,9 @@ filetype indent plugin on
 " syntax highlighting
 syntax on
 
+" line numbers
+set lines
+
 " initialize pathogen
 call pathogen#infect()
 
@@ -102,7 +105,7 @@ set incsearch
 set scrolloff=2
 
 " Tag-List
-map <leader>t :TlistToggle<CR><C-W>h
+"map <leader>t :TlistToggle<CR><C-W>h
 
 " Doxygen
 map <C-D> :Dox<CR>
@@ -123,4 +126,7 @@ set hidden
 " find trailing whitespaces
 set listchars=tab:>-,trail:·,eol:$
 nmap <silent> <leader>s :set nolist!<CR>
+
+" Commant-T
+set wildignore+=*.o,*.d,.git
 

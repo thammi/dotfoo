@@ -80,6 +80,9 @@ au BufRead,BufNewFile *.json setfiletype json
 " qt style sheets (looks like css ;) )
 au BufRead,BufNewFile *.qss setfiletype css
 
+" ruby
+au BufRead,BufNewFile *.rb set shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
+
 " toggle paste option
 set pastetoggle=<F11>
 

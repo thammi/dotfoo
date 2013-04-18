@@ -24,9 +24,6 @@ filetype indent plugin on
 " syntax highlighting
 syntax on
 
-" line numbers
-set lines
-
 " initialize pathogen
 call pathogen#infect()
 

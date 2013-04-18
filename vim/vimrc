@@ -133,3 +133,17 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Commant-T
 set wildignore+=build,test,out,*.o,*.d,.git
 
+" do not lose selection after indent shift
+vmap > >gv
+vmap < <gv
+
+" quick macros with qq and Q
+nnoremap Q @q
+
+" Y acts the same way like C and D
+nnoremap Y y$
+
+" navigate by visual lines
+nnoremap j gj
+nnoremap k gk
+

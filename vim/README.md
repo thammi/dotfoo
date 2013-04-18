@@ -11,3 +11,6 @@ assuming you have no prior configuration files for vim installed
 	ln -s .vim/vimrc .vimrc
 	ln -s .vim/gvimrc .gvimrc
 
+**TODO**: Update this guide to include installation instructions for YCM and
+Syntastic
+

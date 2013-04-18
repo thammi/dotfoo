@@ -140,7 +140,7 @@ vmap < <gv
 " quick macros with qq and Q
 nnoremap Q @q
 
-" Y acts the same way like C and D
+" Y acts the same way as C and D
 nnoremap Y y$
 
 " navigate by visual lines

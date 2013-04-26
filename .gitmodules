@@ -64,3 +64,6 @@
 [submodule "vim/bundle/vim-snippets"]
 	path = vim/bundle/vim-snippets
 	url = git://github.com/honza/vim-snippets.git
+[submodule "vim/bundle/vim-addon-local-vimrc"]
+	path = vim/bundle/vim-addon-local-vimrc
+	url = git://github.com/MarcWeber/vim-addon-local-vimrc.git

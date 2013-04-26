@@ -59,7 +59,7 @@ au FileType python setlocal shiftwidth=4 tabstop=4 smarttab expandtab softtabsto
 " vimrc (meta :D)
 au FileType vim setlocal shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
 
-" haml (meta :D)
+" haml
 au FileType haml setlocal shiftwidth=2 tabstop=2 smarttab expandtab softtabstop=2
 
 " latex

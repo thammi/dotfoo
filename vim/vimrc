@@ -133,6 +133,9 @@ nmap <silent> <leader>s :set nolist!<CR>
 " Commant-T
 set wildignore+=build,test,out,*.o,*.d,.git
 
+" snipmate keybinding
+let g:snips_trigger_key='<c-tab>'
+
 " do not lose selection after indent shift
 vmap > >gv
 vmap < <gv

@@ -1,11 +1,11 @@
-! turn caps lock into escape
+!turn caps lock into escape
 remove Lock = Caps_Lock
 keysym Caps_Lock = Escape
 
-! menu key acts as super key (for awesome)
+!menu key acts as super key (for awesome)
 keysym Menu = Super_R
 
-! right alt activates special characters
+!right alt activates special characters
 keysym Alt_R = Mode_switch
 
 ! get umlauts on the us layout
@@ -21,4 +21,8 @@ keysym e = e E U20AC
 
 ! you never know when you need a lambda
 keysym l = l L U03BB
+
+! the essential snow chars
+keysym m = m M U2603
+keysym f = f F U2744
 

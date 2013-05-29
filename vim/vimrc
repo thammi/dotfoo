@@ -137,8 +137,8 @@ set wildignore+=build,test,out,*.o,*.d,.git
 let g:snips_trigger_key='<c-tab>'
 
 " do not lose selection after indent shift
-vmap > >gv
-vmap < <gv
+vnoremap > >gv
+vnoremap < <gv
 
 " quick macros with qq and Q
 nnoremap Q @q
@@ -149,4 +149,8 @@ nnoremap Y y$
 " navigate by visual lines
 nnoremap j gj
 nnoremap k gk
+
+" insert and select
+nnoremap <leader>p p`[v`]
+nnoremap <leader>P P`[v`]
 

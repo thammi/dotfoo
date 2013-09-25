@@ -26,3 +26,6 @@ keysym l = l L U03BB
 keysym m = m M U2603
 keysym f = f F U2744
 
+! germans need paragraphs
+keysym p = p P section
+

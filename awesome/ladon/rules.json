@@ -1,5 +1,11 @@
 [
 	{
+		"rule": { "class": "Psi-plus" },
+		"properties": {
+			"tag": "2.1"
+		}
+	},
+	{
 		"rule": { "class": "Gajim" },
 		"properties": {
 			"tag": "2.1"

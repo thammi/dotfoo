@@ -3,6 +3,30 @@
 		"layout": "max"
 	},
 	"2.1": {
-		"hint": 0.8
+		"hint": 0.7
+	},
+	"2.2": {
+		"layout": ["tile", "top"]
+	},
+	"2.3": {
+		"layout": ["tile", "top"]
+	},
+	"2.4": {
+		"layout": ["tile", "top"]
+	},
+	"2.5": {
+		"layout": ["tile", "top"]
+	},
+	"2.6": {
+		"layout": ["tile", "top"]
+	},
+	"2.7": {
+		"layout": ["tile", "top"]
+	},
+	"2.8": {
+		"layout": ["tile", "top"]
+	},
+	"2.9": {
+		"layout": ["tile", "top"]
 	}
 }

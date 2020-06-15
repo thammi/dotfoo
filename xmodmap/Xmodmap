@@ -29,3 +29,4 @@ keysym f = f F U2744
 ! germans need paragraphs
 keysym p = p P section
 
+keysym d = d D degree

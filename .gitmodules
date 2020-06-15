@@ -67,3 +67,12 @@
 [submodule "vim/bundle/vim-addon-local-vimrc"]
 	path = vim/bundle/vim-addon-local-vimrc
 	url = git://github.com/MarcWeber/vim-addon-local-vimrc.git
+[submodule "vim/bundle/vim-cjsx"]
+	path = vim/bundle/vim-cjsx
+	url = git@github.com:mtscout6/vim-cjsx.git
+[submodule "vim/plugin/indentLine"]
+	path = vim/plugin/indentLine
+	url = git@github.com:Yggdroot/indentLine.git
+[submodule "vim/bundle/typescript-vim"]
+	path = vim/bundle/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
